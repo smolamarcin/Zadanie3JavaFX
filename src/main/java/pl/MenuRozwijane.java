@@ -1,7 +1,5 @@
 package pl;
 
-import javafx.animation.KeyFrame;
-import javafx.animation.KeyValue;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
@@ -12,15 +10,10 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
-import javafx.scene.shape.StrokeType;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
-import javafx.stage.Popup;
-import javafx.stage.PopupBuilder;
 import javafx.stage.Stage;
-
-import java.time.Duration;
-
-import static java.lang.Math.random;
 
 
 public class MenuRozwijane {
@@ -40,9 +33,6 @@ public class MenuRozwijane {
         contextMenu.show(kratka, event.getScreenX(), event.getScreenY());
 
 //        jesli klikniemyna na kratke 'GridPane', to zamykamy menu
-        kratka.setOnMouseClicked(klikniecie ->
-                contextMenu.hide()
-        );
     }
 
     private static void zmienTlo(GridPane kratka) {
@@ -51,14 +41,15 @@ public class MenuRozwijane {
     }
 
     private static void wyswieltInfoOAutorze() {
-        Stage oknoDialogowe = new Stage();
-        Group glownyElement = new Group();
-        Scene scene = new Scene(glownyElement, 800, 600, Color.BLACK);
-        oknoDialogowe.setScene(scene);
-        Circle circle = new Circle(150, Color.web("white", 0.05));
-
-        glownyElement.getChildren().add(circle);
-//        tutaj tylko pokazanie
+        GridPane kratka = new GridPane();
+        kratka.setStyle("-fx-background-color: linear-gradient(#2A5058, #61a2b1)");
+        final Stage oknoDialogowe = new Stage();
+        kratka.setPadding(new Insets(25, 25, 25, 25));
+        Text tekst = new Text("AUTOR :)");
+        tekst.setFont(Font.font("Verdana", FontWeight.BOLD, 70));
+        kratka.add(tekst, 1, 1);
+        Scene scena = new Scene(kratka, 1000, 200);
+        oknoDialogowe.setScene(scena);
         oknoDialogowe.show();
     }
 }

@@ -12,6 +12,7 @@ public class OknoRejestracji {
 
     static void pokazOknoRejestracji() {
         GridPane kratka = new GridPane();
+        kratka.setStyle("-fx-background-color: linear-gradient(#2A5058, #61a2b1)");
         final Stage oknoDialogowe = new Stage();
         kratka.setPadding(new Insets(25, 25, 25, 25));
         Label nazwaUzytkownika = new Label("Nazwa uzytkownika:");
